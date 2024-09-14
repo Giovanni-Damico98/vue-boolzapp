@@ -26,7 +26,7 @@
     >
       <main class="d-flex">
         <div class="left-side">
-          <div class="borders d-flex align-items-center" id="avatar">
+          <div class="d-flex align-items-center" id="avatar">
             <div class="mx-2">
               <img src="img/avatar_io.png" alt="my-avatar" class="mx-1" />
               <span>Sofia</span>
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div
-            class="borders d-flex justify-content-left align-items-center"
+            class="d-flex justify-content-left align-items-center"
             id="notifications"
           >
             <div>
@@ -67,30 +67,37 @@
             />
           </div>
           <!-- LISTA CONTATTI -->
-          <div class="borders" id="contact-list">
+          <div class="" id="contact-list">
             <!-- CONTATTO -->
-            <div id="contact" class="d-flex borders">
+            <div id="contact" class="d-flex" v-for="contact in contacts">
               <!-- AVATAR -->
               <div class="contact-avatar d-flex align-items-center">
-                <img src="img/avatar_1.png" alt="avatar" />
+                <img :src="contact.avatar" alt="avatar" />
               </div>
               <div class="contact-info">
                 <div class="d-flex justify-content-between">
                   <!-- NOME -->
-                  <span class="contact-name">prova</span>
+                  <span class="contact-name">{{contact.name}}</span>
                   <!-- TEMPO -->
-                  <span class="time">12.12</span>
+                  <span class="time"
+                    >{{ contact.messages[contact.messages.length -
+                    1].date.split(' ')[1].split(':').slice(0, 2).join(':')
+                    }}</span
+                  >
                 </div>
                 <!-- ULTIMO MESSAGGIO -->
-                <span id="last-message">Ultimo messaggio inviato</span>
+                <span id="last-message"
+                  >{{contact.messages[contact.messages.length -
+                  1].message}}</span
+                >
               </div>
             </div>
           </div>
         </div>
         <div class="right-side">
-          <div class="borders" id="chat-header"></div>
-          <div class="borders" id="chat-main"></div>
-          <div class="borders" id="chat-footer"></div>
+          <div class="" id="chat-header"></div>
+          <div class="" id="chat-main"></div>
+          <div class="" id="chat-footer"></div>
         </div>
       </main>
     </div>

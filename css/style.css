@@ -10,14 +10,12 @@
 }
 
 main {
-  border: 1px solid black;
   width: 80%;
   height: 80%;
 }
 
 .left-side,
 .right-side {
-  border: 1px solid black;
   height: 100%;
 }
 
@@ -85,12 +83,14 @@ main {
 #contact-list {
   height: 75%;
   background-color: #e3dbd3;
+  overflow-y: auto;
 }
 
 #contact {
   height: 20%;
   width: 100%;
   background-color: white;
+  cursor: pointer;
 }
 
 #contact:hover {
