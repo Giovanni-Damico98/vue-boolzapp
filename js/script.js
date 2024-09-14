@@ -190,6 +190,15 @@ createApp({
         this.contacts[this.activeIndex].messages.push(newMessageObject);
         // Pulisce il campo di input
         this.newMessage = "";
+
+        // Mostra "ok" dopo 1 secondo
+        setTimeout(() => {
+          this.contacts[this.activeIndex].messages.push({
+            message: "ok",
+            status: "received",
+            date: this.getCurrentTime(),
+          });
+        }, 1000);
       }
     },
     getCurrentTime() {
