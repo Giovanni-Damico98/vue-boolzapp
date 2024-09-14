@@ -3,6 +3,7 @@ createApp({
   data() {
     return {
       activeIndex: 0,
+      newMessage: "",
       contacts: [
         {
           name: "Michele",
@@ -168,5 +169,33 @@ createApp({
       ],
     };
   },
-  methods: {},
+  computed: {
+    activeChatMessages() {
+      // Restituisce i messaggi del contatto attivo
+      return this.contacts[this.activeIndex].messages;
+    },
+  },
+  methods: {
+    setActiveIndex(index) {
+      this.activeIndex = index;
+    },
+    sendMessage() {
+      if (this.newMessage.trim() !== "") {
+        const newMessageObject = {
+          date: this.getCurrentTime(),
+          message: this.newMessage,
+          status: "sent",
+        };
+        // Aggiunge il nuovo messaggio alla lista dei messaggi del contatto attivo
+        this.contacts[this.activeIndex].messages.push(newMessageObject);
+        // Pulisce il campo di input
+        this.newMessage = "";
+      }
+    },
+    getCurrentTime() {
+      // Restituisce l'ora corrente nel formato HH:mm:ss
+      const now = new Date();
+      return now.toLocaleDateString() + " " + now.toLocaleTimeString();
+    },
+  },
 }).mount("#app");

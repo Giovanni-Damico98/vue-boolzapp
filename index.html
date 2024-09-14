@@ -69,7 +69,12 @@
           <!-- LISTA CONTATTI -->
           <div class="" id="contact-list">
             <!-- CONTATTO -->
-            <div id="contact" class="d-flex" v-for="contact in contacts">
+            <div
+              id="contact"
+              class="d-flex"
+              v-for="(contact, contactIndex) in contacts"
+              @click="setActiveIndex(contactIndex)"
+            >
               <!-- AVATAR -->
               <div class="contact-avatar d-flex align-items-center">
                 <img :src="contact.avatar" alt="avatar" />
@@ -98,8 +103,14 @@
           <!-- CHAT HEADER -->
           <div class="d-flex align-items-center" id="chat-header">
             <div class="mx-2 d-flex align-self-center">
-              <img src="img/avatar_io.png" alt="my-avatar" class="mx-1" />
-              <span class="align-self-center">Sofia</span>
+              <img
+                :src="contacts[activeIndex].avatar"
+                :alt="contacts[activeIndex].name"
+                class="mx-1"
+              />
+              <span class="align-self-center"
+                >{{contacts[activeIndex].name}}</span
+              >
             </div>
 
             <div class="d-flex gap-3 mx-3">
@@ -109,9 +120,40 @@
             </div>
           </div>
           <!-- CHAT MAIN -->
-          <div class="" id="chat-main"></div>
+          <div id="chat-main">
+            <div
+              v-for="message in activeChatMessages"
+              :class="message.status === 'sent' ? 'message sent' : 'message received'"
+            >
+              <span>{{ message.message }}</span>
+              <span class="message-time"
+                >{{ message.date.split(' ')[1].split(':').slice(0, 2).join(':')
+                }}</span
+              >
+            </div>
+          </div>
           <!-- CHAT FOOTER -->
-          <div class="" id="chat-footer"></div>
+          <div
+            class="d-flex justify-content-center align-items-center text-center"
+            id="chat-footer"
+          >
+            <div id="emoji">
+              <span><i class="fa-regular fa-face-smile"></i></span>
+            </div>
+            <div id="message-div">
+              <input
+                id="text-message"
+                class="message-input"
+                placeholder="Scrivi un messaggio"
+                name="message"
+                v-model="newMessage"
+                @keyup.enter="sendMessage"
+              />
+            </div>
+            <div id="audio">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+          </div>
         </div>
       </main>
     </div>

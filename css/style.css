@@ -84,6 +84,7 @@ main {
   height: 75%;
   background-color: #e3dbd3;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #contact {
@@ -91,6 +92,9 @@ main {
   width: 100%;
   background-color: white;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #contact:hover {
@@ -106,6 +110,9 @@ main {
   height: 100%;
   width: 100%;
   margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .contact-name {
   font-size: 20px;
@@ -117,14 +124,17 @@ main {
 
 #last-message {
   font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 150px;
 }
 /* LATO DESTRO */
 .right-side {
   width: 60%;
 }
 
-#chat-header,
-#chat-footer {
+#chat-header {
   height: 10%;
   background-color: #eaeaea;
 }
@@ -135,7 +145,71 @@ main {
   margin: 5px 10px;
 }
 
+#chat-header i {
+  font-size: 16px;
+  color: #b1b1b1;
+  cursor: pointer;
+}
+
+/* Layout generale della chat */
 #chat-main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
   height: 80%;
   background-color: #dfd7d0;
+}
+
+/* Messaggio ricevuto */
+.message.received {
+  align-self: flex-start;
+  background-color: white;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 10px;
+  max-width: 60%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word;
+}
+
+/* Messaggio inviato */
+.message.sent {
+  align-self: flex-end;
+  background-color: #d5f9ba;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 10px;
+  max-width: 60%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word;
+}
+
+/* Stile del testo dell'orario del messaggio */
+.message-time {
+  font-size: 10px;
+  margin-left: 10px;
+  display: block;
+  text-align: right;
+}
+
+#chat-footer {
+  height: 10%;
+  background-color: #eaeaea;
+}
+
+#emoji,
+#audio {
+  width: 15%;
+  cursor: pointer;
+}
+
+#message-div {
+  width: 70%;
+}
+
+.message-input {
+  width: 100%;
+  border: none;
 }
