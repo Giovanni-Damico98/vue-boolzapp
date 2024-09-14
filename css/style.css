@@ -129,6 +129,12 @@ main {
   background-color: #eaeaea;
 }
 
+#chat-header img {
+  width: 9%;
+  border-radius: 2rem;
+  margin: 5px 10px;
+}
+
 #chat-main {
   height: 80%;
   background-color: #dfd7d0;
