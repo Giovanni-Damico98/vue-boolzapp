@@ -42,7 +42,7 @@
             id="notifications"
           >
             <div>
-              <span><i class="fa-regular fa-bell-slash mx-2"></i></span>
+              <span><i class="fa-solid fa-bell-slash mx-2"></i></span>
             </div>
             <div class="d-flex flex-column" id="notifications-text">
               <span class="fw-bold" id="notifications-title"
@@ -55,7 +55,7 @@
               >
             </div>
           </div>
-          <div class="borders" id="search">
+          <div id="search">
             <label for="search" class="search-label">
               <i class="fa fa-search mx-3" aria-hidden="true"></i>
             </label>
@@ -64,44 +64,47 @@
               class="search-input"
               placeholder="Cerca o inizia una nuova chat"
               name="search"
+              v-model="searchQuery"
             />
           </div>
           <!-- LISTA CONTATTI -->
           <div class="" id="contact-list">
-            <!-- CONTATTO -->
+            <!-- Contatto -->
             <div
               id="contact"
               class="d-flex"
-              v-for="(contact, contactIndex) in contacts"
+              v-for="(contact, contactIndex) in filteredContacts"
+              :key="contactIndex"
               @click="setActiveIndex(contactIndex)"
             >
-              <!-- AVATAR -->
+              <!-- Avatar -->
               <div class="contact-avatar d-flex align-items-center">
                 <img :src="contact.avatar" alt="avatar" />
               </div>
               <div class="contact-info">
                 <div class="d-flex justify-content-between">
-                  <!-- NOME -->
-                  <span class="contact-name">{{contact.name}}</span>
-                  <!-- TEMPO -->
-                  <span class="time"
-                    >{{ contact.messages[contact.messages.length -
-                    1].date.split(' ')[1].split(':').slice(0, 2).join(':')
-                    }}</span
-                  >
+                  <!-- Nome -->
+                  <span class="contact-name">{{ contact.name }}</span>
+                  <!-- Tempo -->
+                  <span class="time">
+                    {{ contact.messages[contact.messages.length -
+                    1].date.split(' ')[1].split(':').slice(0, 2).join(':') }}
+                  </span>
                 </div>
-                <!-- ULTIMO MESSAGGIO -->
-                <span id="last-message"
-                  >{{contact.messages[contact.messages.length -
-                  1].message}}</span
-                >
+                <!-- Ultimo messaggio -->
+                <span id="last-message">
+                  {{ contact.messages[contact.messages.length - 1].message }}
+                </span>
               </div>
             </div>
           </div>
         </div>
         <div class="right-side">
           <!-- CHAT HEADER -->
-          <div class="d-flex align-items-center" id="chat-header">
+          <div
+            class="d-flex justify-content-between align-items-center"
+            id="chat-header"
+          >
             <div class="mx-2 d-flex align-self-center">
               <img
                 :src="contacts[activeIndex].avatar"

@@ -4,6 +4,7 @@ createApp({
     return {
       activeIndex: 0,
       newMessage: "",
+      searchQuery: "",
       contacts: [
         {
           name: "Michele",
@@ -174,10 +175,20 @@ createApp({
       // Restituisce i messaggi del contatto attivo
       return this.contacts[this.activeIndex].messages;
     },
+    filteredContacts() {
+      // Filtra i contatti in base alla query di ricerca
+      const query = this.searchQuery.toLowerCase();
+      return this.contacts.filter((contact, index) =>
+        contact.name.toLowerCase().includes(query)
+      );
+    },
   },
   methods: {
     setActiveIndex(index) {
-      this.activeIndex = index;
+      // Trova l'indice del contatto selezionato
+      const filteredContacts = this.filteredContacts;
+      const contactIndex = this.contacts.indexOf(filteredContacts[index]);
+      this.activeIndex = contactIndex;
     },
     sendMessage() {
       if (this.newMessage.trim() !== "") {

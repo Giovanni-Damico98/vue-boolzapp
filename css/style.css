@@ -37,7 +37,7 @@ main {
 }
 
 #avatar img {
-  width: 15%;
+  width: 13%;
   border-radius: 1rem;
 }
 
@@ -52,8 +52,11 @@ main {
 }
 
 .fa-bell-slash {
-  border: 10px solid white;
-  border-radius: 2rem;
+  color: #8edafc;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 24px;
 }
 
 #notifications-title {
