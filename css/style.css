@@ -1,0 +1,52 @@
+.container-fluid {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  background: linear-gradient(to bottom, #009688 20%, #d9dbd4 20%);
+}
+
+.borders {
+  border: 1px solid black;
+}
+
+main {
+  border: 1px solid black;
+  width: 80%;
+  height: 80%;
+}
+
+.left-side,
+.right-side {
+  border: 1px solid black;
+  height: 100%;
+}
+/* LATO SINISTRO */
+.left-side {
+  width: 40%;
+}
+
+#avatar,
+#notifications {
+  height: 10%;
+}
+
+#search {
+  height: 5%;
+}
+
+#contact-list {
+  height: 75%;
+}
+/* LATO DESTRO */
+.right-side {
+  width: 60%;
+}
+
+#chat-header,
+#chat-footer {
+  height: 10%;
+}
+
+#chat-main {
+  height: 80%;
+}
