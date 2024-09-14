@@ -20,6 +20,10 @@ main {
   border: 1px solid black;
   height: 100%;
 }
+
+.pointer {
+  cursor: pointer;
+}
 /* LATO SINISTRO */
 .left-side {
   width: 40%;
@@ -30,12 +34,40 @@ main {
   height: 10%;
 }
 
+#avatar {
+  background-color: #eaeaea;
+}
+
+#avatar img {
+  width: 12%;
+  border-radius: 1rem;
+}
+
+#notifications {
+  background-color: #8edafc;
+}
+
+.fa-bell-slash {
+  border: 10px solid white;
+  border-radius: 2rem;
+}
+
+#notifications-title {
+  font-size: 12px;
+}
+
+#notifications-text {
+  font-size: 10px;
+}
+
 #search {
   height: 5%;
+  background-color: white;
 }
 
 #contact-list {
   height: 75%;
+  background-color: #e3dbd3;
 }
 /* LATO DESTRO */
 .right-side {
@@ -45,8 +77,10 @@ main {
 #chat-header,
 #chat-footer {
   height: 10%;
+  background-color: #eaeaea;
 }
 
 #chat-main {
   height: 80%;
+  background-color: #dfd7d0;
 }

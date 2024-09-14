@@ -22,11 +22,31 @@
   <body>
     <div
       class="container-fluid d-flex justify-content-center align-items-center"
+      id="app"
     >
       <main class="d-flex">
         <div class="left-side">
-          <div class="borders" id="avatar"></div>
-          <div class="borders" id="notifications"></div>
+          <div class="borders" id="avatar">
+            <img src="img/avatar_io.png" alt="my-avatar" />
+          </div>
+          <div
+            class="borders d-flex justify-content-left align-items-center"
+            id="notifications"
+          >
+            <div>
+              <span><i class="fa-regular fa-bell-slash mx-2"></i></span>
+            </div>
+            <div class="d-flex flex-column" id="notifications-text">
+              <span class="fw-bold" id="notifications-title"
+                >Ricevi notifiche di nuovi messaggi</span
+              >
+              <span
+                class="text-decoration-underline pointer"
+                id="notifications-text"
+                >Attiva notifiche desktop</span
+              >
+            </div>
+          </div>
           <div class="borders" id="search"></div>
           <div class="borders" id="contact-list"></div>
         </div>
